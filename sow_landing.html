@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SØW — Sound Over War</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;700;900&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Local Base64 Assets to bypass file:// CORS -->
+    <script src="assets.js"></script>
+</head>
+
+<body class="loading">
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+    <div class="loader">
+        <div class="loader-content">
+            <h1 class="loader-huge glitch-text init" data-text="SØW">SØW</h1>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+    <div class="noise"></div>
+
+    <!-- Navigation with Sound Engine Toggle -->
+    <nav class="navbar">
+        <div class="logo hover-target">SØW</div>
+        <div id="audio-toggle" class="audio-btn hover-target">
+            <div class="bars"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+            <span>SOUND <span id="audio-status">OFF</span></span>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <!-- WebGL Interactive Audio-Reactive Hero Section -->
+            <section class="hero section" id="hero">
+                <canvas id="webgl-canvas" class="webgl-bg"></canvas>
+                <div class="hero-overlay"></div>
+
+                <div class="hero-content">
+                    <h1 class="hero-title split-text text-glow-heavy">SØW returns to the underground.</h1>
+                    <p class="hero-subtitle reveal-up text-shadow-strong">Creating real-world connection through raw,
+                        interactive, immersive sound.</p>
+
+                    <button id="enter-circuit-btn" class="epic-btn hover-target reveal-up" style="margin-top:2rem;">
+                        <span class="btn-text">INITIALIZE CIRCUIT (SOUND ON)</span>
+                        <div class="btn-glow"></div>
+                    </button>
+                </div>
+                <div class="scroll-indicator reveal-up"><span>Scroll</span>
+                    <div class="line"></div>
+                </div>
+            </section>
+
+            <!-- WAR vs MUSIC Pinned Transition Section -->
+            <section class="war-peace-container" id="war-peace">
+                <div class="wp-scene scene-war">
+                    <canvas id="canvas-war" class="wp-bg-img" data-asset="war"></canvas>
+                    <div class="wp-dark-layer"></div>
+                    <div class="wp-content">
+                        <h2 class="huge-text glitch-text" style="font-size: 4rem;" data-text="WAR">WAR</h2>
+                        <ul class="problem-list" style="margin-top:0;">
+                            <li>People are digitally connected but emotionally disconnected.</li>
+                            <li>Culture feels artificial.</li>
+                            <li style="margin-top: 2rem; font-size: 1.5rem;"><strong class="text-accent">We create real
+                                    world connection.</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="wp-scene scene-peace">
+                    <canvas id="canvas-peace" class="wp-bg-img" data-asset="peace"></canvas>
+                    <div class="wp-dark-layer"></div>
+                    <div class="wp-content center-text">
+                        <h2 class="huge-text text-glow-heavy">SOUND OVER WAR</h2>
+                        <p class="lead-text" style="max-width: 800px; margin: 0 auto; font-size: 1.4rem;">
+                            We create real-world connection through intimate, curated, high-energy music environments.
+                            <br><br><strong>People feel something real. Communities form naturally.</strong>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3D Drone View Image Cards -->
+            <section class="what-it-is section" id="what-it-is">
+                <div class="grid-2 container">
+                    <div class="text-content">
+                        <h2 class="section-heading split-text text-shadow-strong">WHAT SØW ACTUALLY IS</h2>
+                        <h3 class="sub-heading reveal-up">An underground music circuit.</h3>
+                        <p class="reveal-up">A system where artists perform regularly, audiences return consistently,
+                            and identity is built over time.</p>
+
+                        <ul class="pillars reveal-up">
+                            <li class="hover-target"><strong>Live events</strong> → real experiences</li>
+                            <li class="hover-target"><strong>Artist platform</strong> → growth & exposure</li>
+                            <li class="hover-target"><strong>Community</strong> → belonging</li>
+                        </ul>
+                    </div>
+
+                    <div class="visual-content tilt-card hover-target">
+                        <div class="tilt-inner" style="border-radius: 20px;">
+                            <canvas id="canvas-what" class="full-img" data-asset="crowd"></canvas>
+                            <div class="overlay-grad"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="experience section full-bleed" id="experience">
+                <div class="container">
+                    <h2 class="huge-text outline-text fade-in-scale">THE EXPERIENCE</h2>
+                    <div class="experience-grid">
+                        <div class="card dark-panel hover-target">
+                            <h3>What it feels like</h3>
+                            <p>Dark room. Low light. Heavy bass. Close proximity to the DJ. No distractions.</p>
+                        </div>
+                        <div class="card dark-panel hover-target">
+                            <h3>What makes it different</h3>
+                            <p>Not crowded — <strong class="text-accent">curated</strong>. Not flashy — <strong
+                                    class="text-accent">raw</strong>.</p>
+                        </div>
+                        <div class="card accent-panel hover-target">
+                            <h3>Emotional outcome</h3>
+                            <p>You don't just attend.<br>👉 <strong>You belong.</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="artists section" id="artists">
+                <div class="grid-2 reverse container">
+                    <div class="visual-content tilt-card hover-target">
+                        <div class="tilt-inner" style="border-radius: 20px;">
+                            <canvas id="canvas-artists" class="full-img" data-asset="dj"></canvas>
+                            <div class="overlay-grad"></div>
+                        </div>
+                    </div>
+                    <div class="text-content">
+                        <h2 class="section-heading split-text">THE ARTISTS</h2>
+                        <h3 class="sub-heading reveal-up">SØW builds artists, not just lineups.</h3>
+                        <div class="problem-box reveal-up">
+                            <p>Artists today depend on algorithms, lack real stages, and struggle to build identity.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Forms -->
+            <section class="join section" id="join">
+                <div class="container">
+                    <div class="center-text">
+                        <h2 class="section-heading split-text">JOIN THE CIRCUIT</h2>
+                    </div>
+                    <div class="forms-container reveal-up">
+                        <div class="form-wrapper dark-panel hover-target">
+                            <h3 style="margin-bottom: 0.5rem;">Listener Query</h3>
+                            <form id="queryForm" class="appscript-form" style="margin-top:2rem;">
+                                <div class="input-group"><input type="text" name="name" required
+                                        placeholder=" "><label>Your Name</label></div>
+                                <div class="input-group"><input type="email" name="email" required
+                                        placeholder=" "><label>Your Email</label></div>
+                                <button type="submit" class="submit-btn hover-effect"><span>Send Signal</span></button>
+                                <div class="form-message"></div>
+                            </form>
+                        </div>
+                        <div class="form-wrapper accent-panel hover-target">
+                            <h3 style="margin-bottom: 0.5rem;">Artist Registration</h3>
+                            <form id="artistForm" class="appscript-form" style="margin-top:2rem;">
+                                <div class="input-group"><input type="text" name="artist_name" required
+                                        placeholder=" "><label style="color:#fff;">Artist Name</label></div>
+                                <div class="input-group"><input type="email" name="email" required
+                                        placeholder=" "><label style="color:#fff;">Contact Email</label></div>
+                                <button type="submit" class="submit-btn outline hover-effect"
+                                    style="border-color: rgba(255,255,255,0.5);"><span>Submit Profile</span></button>
+                                <div class="form-message"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="site-footer">
+                <div class="container center-text">
+                    <p>&copy; 2026 SØW. All rights reserved.</p>
+                </div>
+            </footer>
+        </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+
+</html>
