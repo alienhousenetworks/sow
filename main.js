@@ -1,10 +1,17 @@
 // ====== Smooth Scrolling Setup (Lenis) ======
-const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
+const lenis = new Lenis({ 
+    duration: 1.2, 
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+    smooth: true,
+    smoothTouch: true, // Advanced smooth touch scrolling
+    touchMultiplier: 1.5 
+});
 function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
 requestAnimationFrame(raf);
 
 // ====== GSAP ======
 gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.normalizeScroll(true); // Fixes address bar pop-ins causing glitchy scrolling
 lenis.on('scroll', ScrollTrigger.update);
 gsap.ticker.add((time) => { lenis.raf(time * 1000); });
 gsap.ticker.lagSmoothing(0, 0);
@@ -103,7 +110,8 @@ function initWebGLHero() {
     scene.add(group);
 
     // === The "Sound Over War" Particle System ===
-    const particleCount = 6000;
+    const isMobile = window.innerWidth < 768;
+    const particleCount = isMobile ? 2500 : 6000; // Optimize GPU overhead for phones
     const geometry = new THREE.BufferGeometry();
     
     // Arrays for different states
