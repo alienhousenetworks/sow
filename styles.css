@@ -268,9 +268,14 @@ ul.pillars li::before { content: ''; position: absolute; left: 0; top: 10px; wid
     .hero-title { font-size: clamp(2.5rem, 12vw, 4rem); }
     .section-heading { font-size: clamp(2rem, 9vw, 3rem); }
     .huge-text { font-size: clamp(2.2rem, 9vw, 3.5rem); }
-    .wp-content { padding: 2.5rem; width: 95%; }
+    .wp-content { padding: 2.5rem; width: 95%; margin: auto; }
     
     .event-row { flex-direction: column; text-align: left; align-items: flex-start; }
     .event-image { width: 100%; height: 200px; }
     .event-action { width: 100%; }
+
+    /* Un-pin War/Peace transition for Mobile */
+    .war-peace-container { height: auto; display: flex; flex-direction: column; overflow: visible; }
+    .wp-scene { position: relative; height: auto; min-height: 80vh; padding: 4rem 0; overflow: hidden; display: flex; }
+    .wp-parallax-wrap { top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
 }

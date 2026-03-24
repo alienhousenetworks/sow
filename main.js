@@ -1,9 +1,11 @@
 // ====== Smooth Scrolling Setup (Lenis) ======
+const isMobile = window.innerWidth < 768;
+
 const lenis = new Lenis({ 
     duration: 1.2, 
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
     smooth: true,
-    smoothTouch: true, // Advanced smooth touch scrolling
+    smoothTouch: false, // Reverted to false to allow native buttery smooth scroll on mobile touch
     touchMultiplier: 1.5 
 });
 function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
@@ -594,7 +596,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- WAR to PEACE Pinned Transition (with image parallax) ---
     const wpContainer = document.querySelector('.war-peace-container');
-    if (wpContainer) {
+    if (wpContainer && !isMobile) {
         gsap.set(".scene-peace", { opacity: 0, scale: 1.05 });
         gsap.set(".scene-war .wp-content", { y: 0, opacity: 1 });
         gsap.set(".scene-peace .wp-content", { y: 50, opacity: 0 });
@@ -612,12 +614,39 @@ document.addEventListener("DOMContentLoaded", () => {
                 .to(".scene-peace", { opacity: 1, scale: 1, duration: 1.5 }, "-=0.5")
                 .to(".scene-peace .wp-parallax-img", { scale: 1.0, yPercent: 0, duration: 1.5 }, "<")
                 .to(".scene-peace .wp-content", { y: 0, opacity: 1, duration: 1 }, "-=1.0");
+    } else if (wpContainer && isMobile) {
+        // Mobile static stacking (solves content load delay and pin glitches)
+        gsap.set(".scene-peace", { opacity: 1, scale: 1 });
+        gsap.set(".scene-war .wp-content", { y: 0, opacity: 1 });
+        gsap.set(".scene-peace .wp-content", { y: 0, opacity: 1 });
+        gsap.set(".scene-war .wp-dark-layer", { opacity: 0.6 });
+        gsap.set(".scene-peace .wp-dark-layer", { opacity: 0.6 });
+        gsap.set(".scene-war .wp-parallax-img", { scale: 1, yPercent: 0 });
+        gsap.set(".scene-peace .wp-parallax-img", { scale: 1, yPercent: 0 });
     }
 
     // --- Standard Scroll Reveals ---
-    gsap.utils.toArray('.reveal-up').forEach(el => {
-        gsap.fromTo(el, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 85%" } });
-    });
+    const revealElements = document.querySelectorAll('.reveal-up');
+    if (!isMobile) {
+        revealElements.forEach(elem => {
+            gsap.fromTo(elem, 
+                { y: 50, opacity: 0 }, 
+                {
+                    y: 0, opacity: 1, duration: 1, ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: 'top 85%',
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+        });
+    } else {
+        // On mobile, show content immediately to avoid scroll wait state
+        revealElements.forEach(elem => {
+            gsap.set(elem, { y: 0, opacity: 1 });
+        });
+    }
 
     splits.forEach((split, i) => {
         if(i === 0) return;
