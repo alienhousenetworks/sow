@@ -587,31 +587,23 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- WAR to PEACE Pinned Transition (with image parallax) ---
     const wpContainer = document.querySelector('.war-peace-container');
     if (wpContainer) {
-        const peaceScene = document.querySelector('.scene-peace');
-        const warImg = document.querySelector('.scene-war .wp-parallax-img');
-        const peaceImg = document.querySelector('.scene-peace .wp-parallax-img');
-
-        gsap.set(peaceScene, { opacity: 0, scale: 1.1 });
+        gsap.set(".scene-peace", { opacity: 0, scale: 1.05 });
         gsap.set(".scene-war .wp-content", { y: 0, opacity: 1 });
-        gsap.set(".scene-peace .wp-content", { y: 100, opacity: 0 });
+        gsap.set(".scene-peace .wp-content", { y: 50, opacity: 0 });
         gsap.set(".scene-war .wp-dark-layer", { opacity: 0.9 });
-        gsap.set(".scene-peace .wp-dark-layer", { opacity: 0.15 });
+        gsap.set(".scene-peace .wp-dark-layer", { opacity: 0.6 });
 
-        // Set initial state for parallax images
-        if (warImg)  gsap.set(warImg, { scale: 1.15, yPercent: -8 });
-        if (peaceImg) gsap.set(peaceImg, { scale: 1.2, yPercent: 10 });
+        gsap.set(".scene-war .wp-parallax-img", { scale: 1.15, yPercent: -5 });
+        gsap.set(".scene-peace .wp-parallax-img", { scale: 1.15, yPercent: 5 });
 
         const pinnedTl = gsap.timeline({ scrollTrigger: { trigger: wpContainer, start: "top top", end: "+=2500", pin: true, scrub: 1 } });
 
-        // War scene: parallax image drifts up + zooms, content fades out
-        pinnedTl.to(".scene-war .wp-content", { y: -100, opacity: 0, duration: 1 })
-                .to(".scene-war .wp-dark-layer", { opacity: 0.18, duration: 1 }, "<")
-                .to(warImg, { scale: 1.35, yPercent: -20, duration: 1.5 }, "<")
-                // Peace scene: fades in with parallax image drift
-                .to(peaceScene, { opacity: 1, scale: 1, duration: 2 }, "-=0.5")
-                .to(".scene-peace .wp-dark-layer", { opacity: 0.75, duration: 1 }, "-=0.9")
-                .to(peaceImg, { scale: 1.05, yPercent: -5, duration: 2 }, "-=2")
-                .to(".scene-peace .wp-content", { y: 0, opacity: 1, duration: 1 });
+        pinnedTl.to(".scene-war .wp-content", { y: -50, opacity: 0, duration: 1 })
+                .to(".scene-war .wp-dark-layer", { opacity: 0.2, duration: 1 }, "<")
+                .to(".scene-war .wp-parallax-img", { scale: 1.3, yPercent: -15, duration: 1.5 }, "<")
+                .to(".scene-peace", { opacity: 1, scale: 1, duration: 1.5 }, "-=0.5")
+                .to(".scene-peace .wp-parallax-img", { scale: 1.0, yPercent: 0, duration: 1.5 }, "<")
+                .to(".scene-peace .wp-content", { y: 0, opacity: 1, duration: 1 }, "-=1.0");
     }
 
     // --- Standard Scroll Reveals ---
