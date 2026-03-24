@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SØW — Sound Over War</title>
+    <title>SØW - Sound Over War</title>
+    <meta name="description" content="SØW — Underground music experiences where you don't just attend, you belong. Curated events, emerging artists, real community.">
     <link rel="stylesheet" href="styles.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +40,7 @@
     </div>
     <div class="noise"></div>
 
-    <!-- Navigation with Sound Engine Toggle -->
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="logo hover-target">SØW</div>
         <div id="audio-toggle" class="audio-btn hover-target">
@@ -48,105 +49,211 @@
         </div>
     </nav>
 
+    <!-- Global 3D Scrolling Background -->
+    <canvas id="webgl-canvas" class="global-webgl-bg"></canvas>
+
     <!-- Main Content -->
     <main id="smooth-wrapper">
         <div id="smooth-content">
 
-            <!-- WebGL Interactive Audio-Reactive Hero Section -->
+            <!-- ═══ 1. HERO ═══ -->
             <section class="hero section" id="hero">
-                <canvas id="webgl-canvas" class="webgl-bg"></canvas>
+                <div class="hero-bg-image" style="background-image: url('file:///Users/sayantande/.gemini/antigravity/brain/cac2ab50-80cc-4508-9dec-9a0f3da28b77/real_dj_setup_1774346068030.png');"></div>
                 <div class="hero-overlay"></div>
-
                 <div class="hero-content">
-                    <h1 class="hero-title split-text text-glow-heavy">SØW returns to the underground.</h1>
-                    <p class="hero-subtitle reveal-up text-shadow-strong">Creating real-world connection through raw,
-                        interactive, immersive sound.</p>
-
-                    <button id="enter-circuit-btn" class="epic-btn hover-target reveal-up" style="margin-top:2rem;">
-                        <span class="btn-text">INITIALIZE CIRCUIT (SOUND ON)</span>
-                        <div class="btn-glow"></div>
-                    </button>
+                    <p class="hero-eyebrow reveal-up">UNDERGROUND IS NOT A PLACE</p>
+                    <h1 class="hero-title split-text text-glow-heavy">ESCAPE THE NOISE.<br>ENTER THE REAL.</h1>
+                    <p class="hero-subtitle reveal-up text-shadow-strong">Real music. Real people. No filters.<br>Built for those who feel sound, not scroll it.</p>
+                    <div class="cta-group reveal-up">
+                        <a href="#join" class="epic-btn hover-target" id="enter-circuit-btn">
+                            <span class="btn-text">REQUEST INVITE</span>
+                            <div class="btn-glow"></div>
+                        </a>
+                        <a href="#upcoming-events" class="epic-btn outline hover-target">
+                            <span class="btn-text">UPCOMING EVENTS</span>
+                            <div class="btn-glow"></div>
+                        </a>
+                    </div>
                 </div>
                 <div class="scroll-indicator reveal-up"><span>Scroll</span>
                     <div class="line"></div>
                 </div>
             </section>
 
-            <!-- WAR vs MUSIC Pinned Transition Section -->
-            <section class="war-peace-container" id="war-peace">
-                <div class="wp-scene scene-war">
-                    <canvas id="canvas-war" class="wp-bg-img" data-asset="war"></canvas>
-                    <div class="wp-dark-layer"></div>
-                    <div class="wp-content">
-                        <h2 class="huge-text glitch-text" style="font-size: 4rem;" data-text="WAR">WAR</h2>
-                        <ul class="problem-list" style="margin-top:0;">
-                            <li>People are digitally connected but emotionally disconnected.</li>
-                            <li>Culture feels artificial.</li>
-                            <li style="margin-top: 2rem; font-size: 1.5rem;"><strong class="text-accent">We create real
-                                    world connection.</strong></li>
-                        </ul>
+            <!-- ═══ 2. WHAT IS SØW ═══ -->
+            <section class="what-is section" id="what-is">
+                <div class="container center-text">
+                    <p class="section-eyebrow reveal-up">WHAT IS SØW</p>
+                    <h2 class="section-heading split-text">A MOVEMENT,<br>NOT A BRAND.</h2>
+                    <p class="lead-text reveal-up" style="max-width:700px; margin:0 auto;">Where music becomes something you belong to.</p>
+                    <div class="feature-row reveal-up">
+                        <div class="feature-chip">Curated underground events</div>
+                        <div class="feature-chip">Emerging artists, real sound</div>
+                        <div class="feature-chip">A culture-first community</div>
                     </div>
                 </div>
+            </section>
 
-                <div class="wp-scene scene-peace">
-                    <canvas id="canvas-peace" class="wp-bg-img" data-asset="peace"></canvas>
+            <!-- ═══ 3. THE EXPERIENCE ═══ -->
+            <section class="experience section full-bleed" id="experience">
+                <div class="container center-text">
+                    <p class="section-eyebrow reveal-up">THE EXPERIENCE</p>
+                    <h2 class="huge-text split-text text-glow-heavy">FEEL IT.<br>DON'T WATCH IT.</h2>
+
+                    <div class="micro-lines reveal-up">
+                        <span>Dark rooms.</span>
+                        <span>Heavy bass.</span>
+                        <span>No distractions.</span>
+                        <span>Pure immersion.</span>
+                    </div>
+
+                    <div class="experience-grid">
+                        <div class="card dark-panel hover-target reveal-up">
+                            <div class="card-number">50–150</div>
+                            <h3>Limited Entry</h3>
+                            <p>Intimate capacity only</p>
+                        </div>
+                        <div class="card dark-panel hover-target reveal-up">
+                            <div class="card-number">0m</div>
+                            <h3>Close-to-Artist</h3>
+                            <p>No barriers between you and the music</p>
+                        </div>
+                        <div class="card accent-panel hover-target reveal-up">
+                            <div class="card-number">✓</div>
+                            <h3>Vibe-Checked</h3>
+                            <p>No mainstream crowd. No chaos.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══ URGENCY MARQUEE ═══ -->
+            <div class="marquee-banner">
+                <div class="marquee-content">
+                    <span>FIRST DROP — COMING SOON</span><span class="sep">◆</span>
+                    <span>LIMITED ROOM. UNLIMITED ENERGY.</span><span class="sep">◆</span>
+                    <span>YOU'RE EITHER EARLY OR YOU MISSED IT.</span><span class="sep">◆</span>
+                    <span>FOUNDING COMMUNITY ACCESS</span><span class="sep">◆</span>
+                    <span>FIRST DROP — COMING SOON</span><span class="sep">◆</span>
+                    <span>LIMITED ROOM. UNLIMITED ENERGY.</span><span class="sep">◆</span>
+                    <span>YOU'RE EITHER EARLY OR YOU MISSED IT.</span><span class="sep">◆</span>
+                    <span>FOUNDING COMMUNITY ACCESS</span><span class="sep">◆</span>
+                </div>
+            </div>
+
+            <!-- ═══ 4. UPCOMING EVENTS ═══ -->
+            <section class="upcoming-events section" id="upcoming-events">
+                <div class="container">
+                    <div class="center-text" style="margin-bottom: 4rem;">
+                        <p class="section-eyebrow reveal-up">THE CIRCUIT</p>
+                        <h2 class="section-heading split-text">UPCOMING EVENTS</h2>
+                    </div>
+                    
+                    <div class="events-list reveal-up">
+                        <!-- Event 1 (Uses the canvas sphere) -->
+                        <div class="event-row hover-target">
+                            <div class="event-image tilt-card">
+                                <div class="tilt-inner" style="border-radius: 8px; height: 100%;">
+                                    <canvas id="canvas-what" class="full-img" data-asset="crowd"></canvas>
+                                    <div class="overlay-grad"></div>
+                                </div>
+                            </div>
+                            <div class="event-info">
+                                <h3>SECRET INNER CITY</h3>
+                                <p class="event-date">TBA / COMING SOON</p>
+                                <ul class="event-details-mini">
+                                    <li><span class="icon">📍</span> Undisclosed</li>
+                                    <li><span class="icon">🎵</span> Techno / Bass</li>
+                                </ul>
+                            </div>
+                            <div class="event-action">
+                                <a href="#join" class="epic-btn hover-target btn-sm"><span class="btn-text">REQUEST INVITE</span><div class="btn-glow"></div></a>
+                            </div>
+                        </div>
+
+                        <!-- Event 2 -->
+                        <div class="event-row hover-target">
+                            <div class="event-image">
+                                <div style="background: #111; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.05);">
+                                    <span style="color:var(--text-secondary); font-family:var(--font-heading); font-size:0.8rem; letter-spacing:2px;">CLASSIFIED</span>
+                                </div>
+                            </div>
+                            <div class="event-info">
+                                <h3>THE WAREHOUSE</h3>
+                                <p class="event-date">SUMMER 2026</p>
+                                <ul class="event-details-mini">
+                                    <li><span class="icon">📍</span> Industrial District</li>
+                                    <li><span class="icon">🎵</span> Hard Techno</li>
+                                </ul>
+                            </div>
+                            <div class="event-action">
+                                <a href="#join" class="epic-btn outline hover-target btn-sm"><span class="btn-text">WAITLIST</span><div class="btn-glow"></div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══ 5. WHO THIS IS FOR ═══ -->
+            <section class="who-for section full-bleed" id="who-for">
+                <div class="container center-text">
+                    <p class="section-eyebrow reveal-up">WHO THIS IS FOR</p>
+                    <h2 class="section-heading split-text">NOT FOR EVERYONE.<br>AND THAT'S THE POINT.</h2>
+                    <div class="who-grid reveal-up">
+                        <div class="who-item hover-target">You're tired of commercial parties</div>
+                        <div class="who-item hover-target">You actually <em>feel</em> music</div>
+                        <div class="who-item hover-target">You want real connection</div>
+                        <div class="who-item hover-target">You prefer underground over hype</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══ 6. COMMUNITY ═══ -->
+            <section class="community section" id="community">
+                <div class="container center-text">
+                    <p class="section-eyebrow reveal-up">COMMUNITY</p>
+                    <h2 class="section-heading split-text">NOT FOLLOWERS. NOT FANS.<br><span class="text-accent">FAMILY.</span></h2>
+                    <div class="experience-grid" style="margin-top:3rem;">
+                        <div class="card dark-panel hover-target reveal-up">
+                            <h3>Find Your People</h3>
+                            <p>Real connections > digital noise</p>
+                        </div>
+                        <div class="card dark-panel hover-target reveal-up">
+                            <h3>Shared Energy</h3>
+                            <p>Not algorithms — vibrations</p>
+                        </div>
+                        <div class="card accent-panel hover-target reveal-up">
+                            <h3>Shape the Culture</h3>
+                            <p>Early believers define what this becomes</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══ 7. WHY SØW EXISTS (pinned transition) ═══ -->
+            <section class="war-peace-container" id="why-exists">
+                <div class="wp-scene scene-war">
+                    <div class="wp-parallax-wrap">
+                        <img src="assets/war_division.png" alt="Division" class="wp-bg-img wp-parallax-img">
+                    </div>
                     <div class="wp-dark-layer"></div>
                     <div class="wp-content center-text">
-                        <h2 class="huge-text text-glow-heavy">SOUND OVER WAR</h2>
-                        <p class="lead-text" style="max-width: 800px; margin: 0 auto; font-size: 1.4rem;">
-                            We create real-world connection through intimate, curated, high-energy music environments.
-                            <br><br><strong>People feel something real. Communities form naturally.</strong>
-                        </p>
+                        <h2 class="huge-text text-glow-heavy" style="font-size:clamp(2rem,5vw,4rem);">WHEN EVERYTHING IS DIVIDED,<br>MUSIC UNITES.</h2>
+                        <p class="lead-text reveal-up" style="margin-top:1.5rem; font-size:1.3rem; opacity:0.8;">People feel disconnected. Music became background noise. We bring it back to life.</p>
+                    </div>
+                </div>
+                <div class="wp-scene scene-peace">
+                    <div class="wp-parallax-wrap">
+                        <img src="assets/peace_music.png" alt="Unity through music" class="wp-bg-img wp-parallax-img">
+                    </div>
+                    <div class="wp-dark-layer"></div>
+                    <div class="wp-content center-text">
+                        <h2 class="huge-text text-glow-heavy" style="font-size:clamp(2rem,5vw,4rem);">LESS CONTENT.<br>MORE CONNECTION.</h2>
                     </div>
                 </div>
             </section>
 
-            <!-- 3D Drone View Image Cards -->
-            <section class="what-it-is section" id="what-it-is">
-                <div class="grid-2 container">
-                    <div class="text-content">
-                        <h2 class="section-heading split-text text-shadow-strong">WHAT SØW ACTUALLY IS</h2>
-                        <h3 class="sub-heading reveal-up">An underground music circuit.</h3>
-                        <p class="reveal-up">A system where artists perform regularly, audiences return consistently,
-                            and identity is built over time.</p>
-
-                        <ul class="pillars reveal-up">
-                            <li class="hover-target"><strong>Live events</strong> → real experiences</li>
-                            <li class="hover-target"><strong>Artist platform</strong> → growth & exposure</li>
-                            <li class="hover-target"><strong>Community</strong> → belonging</li>
-                        </ul>
-                    </div>
-
-                    <div class="visual-content tilt-card hover-target">
-                        <div class="tilt-inner" style="border-radius: 20px;">
-                            <canvas id="canvas-what" class="full-img" data-asset="crowd"></canvas>
-                            <div class="overlay-grad"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="experience section full-bleed" id="experience">
-                <div class="container">
-                    <h2 class="huge-text outline-text fade-in-scale">THE EXPERIENCE</h2>
-                    <div class="experience-grid">
-                        <div class="card dark-panel hover-target">
-                            <h3>What it feels like</h3>
-                            <p>Dark room. Low light. Heavy bass. Close proximity to the DJ. No distractions.</p>
-                        </div>
-                        <div class="card dark-panel hover-target">
-                            <h3>What makes it different</h3>
-                            <p>Not crowded — <strong class="text-accent">curated</strong>. Not flashy — <strong
-                                    class="text-accent">raw</strong>.</p>
-                        </div>
-                        <div class="card accent-panel hover-target">
-                            <h3>Emotional outcome</h3>
-                            <p>You don't just attend.<br>👉 <strong>You belong.</strong></p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+            <!-- ═══ 8. FOR ARTISTS ═══ -->
             <section class="artists section" id="artists">
                 <div class="grid-2 reverse container">
                     <div class="visual-content tilt-card hover-target">
@@ -156,42 +263,144 @@
                         </div>
                     </div>
                     <div class="text-content">
-                        <h2 class="section-heading split-text">THE ARTISTS</h2>
-                        <h3 class="sub-heading reveal-up">SØW builds artists, not just lineups.</h3>
-                        <div class="problem-box reveal-up">
-                            <p>Artists today depend on algorithms, lack real stages, and struggle to build identity.</p>
+                        <p class="section-eyebrow reveal-up">FOR ARTISTS & DJS</p>
+                        <h2 class="section-heading split-text">YOUR SOUND DESERVES A ROOM.</h2>
+                        <h3 class="sub-heading reveal-up" style="margin-bottom:1.5rem;">From unknown to unforgettable.</h3>
+                        <ul class="pillars reveal-up" style="font-size:1.2rem;">
+                            <li>Play real sets to real people</li>
+                            <li>Build identity, not followers</li>
+                            <li>Join a growing underground circuit</li>
+                        </ul>
+                        <a href="#join" class="epic-btn outline hover-target reveal-up" style="margin-top:2rem; display:inline-block; text-decoration:none;">
+                            <span class="btn-text">APPLY TO PLAY</span>
+                            <div class="btn-glow"></div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══ 9. SOUND IDENTITY ═══ -->
+            <section class="sound-identity section full-bleed" id="sound-identity">
+                <div class="container center-text">
+                    <p class="section-eyebrow reveal-up">SOUND IDENTITY</p>
+                    <h2 class="section-heading split-text">NOT MAINSTREAM.<br>NEVER WAS.</h2>
+                    <div class="genre-tags reveal-up">
+                        <span class="genre-tag">TECHNO</span>
+                        <span class="genre-tag">BASS</span>
+                        <span class="genre-tag">EXPERIMENTAL</span>
+                        <span class="genre-tag">AMBIENT</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══ 10. HOW IT WORKS ═══ -->
+            <section class="how-it-works section" id="how-it-works">
+                <div class="container center-text">
+                    <p class="section-eyebrow reveal-up">HOW YOU GET IN</p>
+                    <h2 class="section-heading split-text">3 STEPS. NO BS.</h2>
+                    <div class="steps-row reveal-up">
+                        <div class="step-item hover-target">
+                            <div class="step-num">01</div>
+                            <h3>Request Access</h3>
+                            <p>Drop your name. We review.</p>
+                        </div>
+                        <div class="step-divider"></div>
+                        <div class="step-item hover-target">
+                            <div class="step-num">02</div>
+                            <h3>Get Approved</h3>
+                            <p>If you fit the vibe, you're in.</p>
+                        </div>
+                        <div class="step-divider"></div>
+                        <div class="step-item hover-target">
+                            <div class="step-num">03</div>
+                            <h3>Show Up & Feel It</h3>
+                            <p>No phones. Just sound.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Forms -->
-            <section class="join section" id="join">
-                <div class="container">
-                    <div class="center-text">
-                        <h2 class="section-heading split-text">JOIN THE CIRCUIT</h2>
+            <!-- ═══ 11. FOUNDING MEMBERS ═══ -->
+            <section class="founding section full-bleed" id="founding" style="background:#080808;">
+                <div class="container center-text">
+                    <p class="section-eyebrow reveal-up" style="color:var(--text-accent);">⚡ FOUNDING MEMBERS</p>
+                    <h2 class="section-heading split-text">BE THERE BEFORE<br>IT BLOWS UP.</h2>
+                    <div class="experience-grid" style="margin-top:3rem;">
+                        <div class="card dark-panel hover-target reveal-up" style="border-color:var(--text-accent);">
+                            <div class="card-number" style="color:var(--text-accent);">100</div>
+                            <h3>Core Community</h3>
+                            <p>First 100 people = founding energy</p>
+                        </div>
+                        <div class="card dark-panel hover-target reveal-up" style="border-color:var(--text-accent);">
+                            <div class="card-number" style="color:var(--text-accent);">∞</div>
+                            <h3>Lifetime Early Access</h3>
+                            <p>Priority invites to every drop</p>
+                        </div>
+                        <div class="card accent-panel hover-target reveal-up">
+                            <div class="card-number">0</div>
+                            <h3>Second Chances</h3>
+                            <p>No mass entry. No second chances for this drop.</p>
+                        </div>
                     </div>
+                </div>
+            </section>
+
+            <!-- ═══ 12. CULTURE / PURPOSE ═══ -->
+            <section class="purpose-banner section" id="purpose">
+                <div class="container center-text">
+                    <h2 class="huge-text split-text" style="color:#000;">SOUND WITH PURPOSE.</h2>
+                    <p class="lead-text reveal-up" style="color:rgba(0,0,0,0.7); font-size:1.4rem; max-width:600px; margin:1rem auto 0;">Limited drops. Culture-driven design. Impact beyond events.</p>
+                </div>
+            </section>
+
+            <!-- ═══ 13. WHAT'S COMING ═══ -->
+            <section class="future section" id="future">
+                <div class="container center-text">
+                    <p class="section-eyebrow reveal-up">WHAT'S NEXT</p>
+                    <h2 class="section-heading split-text">THIS IS JUST<br>THE START.</h2>
+                    <div class="future-grid reveal-up">
+                        <div class="future-item hover-target"><span class="future-icon">🎤</span>More Events</div>
+                        <div class="future-item hover-target"><span class="future-icon">🎧</span>Artist Drops</div>
+                        <div class="future-item hover-target"><span class="future-icon">🌍</span>Community Expansion</div>
+                        <div class="future-item hover-target"><span class="future-icon">👕</span>Merch Releases</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══ 14. FINAL CTA ═══ -->
+            <section class="final-cta section full-bleed" id="join">
+                <div class="container">
+                    <div class="center-text reveal-up">
+                        <p class="section-eyebrow" style="color:var(--text-accent);">YOUR ENTRY POINT</p>
+                        <h2 class="huge-text outline-text fade-in-scale" style="font-size:clamp(2rem,5vw,4.5rem);">STEP IN OR STAY OUT.</h2>
+                        <h2 class="huge-text text-glow-heavy" style="margin-top:-0.5rem; font-size:clamp(2.5rem,6vw,5.5rem);">DON'T WATCH FROM OUTSIDE.</h2>
+                    </div>
+
                     <div class="forms-container reveal-up">
+                        <!-- Audience / Connect Form -->
                         <div class="form-wrapper dark-panel hover-target">
-                            <h3 style="margin-bottom: 0.5rem;">Listener Query</h3>
-                            <form id="queryForm" class="appscript-form" style="margin-top:2rem;">
-                                <div class="input-group"><input type="text" name="name" required
-                                        placeholder=" "><label>Your Name</label></div>
-                                <div class="input-group"><input type="email" name="email" required
-                                        placeholder=" "><label>Your Email</label></div>
-                                <button type="submit" class="submit-btn hover-effect"><span>Send Signal</span></button>
+                            <h3>Connect With Us</h3>
+                            <p class="form-subtitle">Want to be part of SØW? Drop your details.</p>
+                            <form id="queryForm" class="appscript-form">
+                                <div class="input-group"><input type="text" name="name" required placeholder=" "><label>Your Name</label></div>
+                                <div class="input-group"><input type="email" name="email" required placeholder=" "><label>Your Email</label></div>
+                                <div class="input-group"><input type="tel" name="phone" placeholder=" "><label>Phone Number</label></div>
+                                <div class="input-group"><textarea name="message" rows="3" placeholder=" "></textarea><label>Your Message</label></div>
+                                <button type="submit" class="submit-btn hover-effect"><span>GET ACCESS</span></button>
                                 <div class="form-message"></div>
                             </form>
                         </div>
-                        <div class="form-wrapper accent-panel hover-target">
-                            <h3 style="margin-bottom: 0.5rem;">Artist Registration</h3>
-                            <form id="artistForm" class="appscript-form" style="margin-top:2rem;">
-                                <div class="input-group"><input type="text" name="artist_name" required
-                                        placeholder=" "><label style="color:#fff;">Artist Name</label></div>
-                                <div class="input-group"><input type="email" name="email" required
-                                        placeholder=" "><label style="color:#fff;">Contact Email</label></div>
-                                <button type="submit" class="submit-btn outline hover-effect"
-                                    style="border-color: rgba(255,255,255,0.5);"><span>Submit Profile</span></button>
+
+                        <!-- Artist Form -->
+                        <div class="form-wrapper dark-panel hover-target">
+                            <h3>Apply to Play</h3>
+                            <p class="form-subtitle">Are you an artist or DJ? Let's hear from you.</p>
+                            <form id="artistForm" class="appscript-form">
+                                <div class="input-group"><input type="text" name="name" required placeholder=" "><label>Artist / DJ Name</label></div>
+                                <div class="input-group"><input type="tel" name="phone" placeholder=" "><label>Phone Number</label></div>
+                                <div class="input-group"><input type="email" name="email" required placeholder=" "><label>Your Email</label></div>
+                                <div class="input-group"><textarea name="message" rows="3" placeholder=" "></textarea><label>Your Message</label></div>
+                                <button type="submit" class="submit-btn hover-effect"><span>SUBMIT APPLICATION</span></button>
                                 <div class="form-message"></div>
                             </form>
                         </div>
@@ -201,7 +410,7 @@
 
             <footer class="site-footer">
                 <div class="container center-text">
-                    <p>&copy; 2026 SØW. All rights reserved.</p>
+                    <p>&copy; 2026 SØW. Founding Community Access.</p>
                 </div>
             </footer>
         </div>
