@@ -362,7 +362,7 @@ function initWebGLHero() {
 
 
 // ====== Helper to init image mapped 3D spheres (Bypassing File:// CORS limitations via Base64 Memory object) ======
-function initImageSphere(canvasId, assetKey, triggerSelector) {
+function initImageSphere(canvasId, assetKey, triggerSelector, initialYaw = 0) {
     const canvas = document.getElementById(canvasId);
     if (!canvas || !SOW_ASSETS || !SOW_ASSETS[assetKey]) return;
 
@@ -378,7 +378,7 @@ function initImageSphere(canvasId, assetKey, triggerSelector) {
     renderer.setClearAlpha(0);
 
     // Modern dramatic Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.0); // Brighter standard lighting
     scene.add(ambientLight);
     const dirLight1 = new THREE.DirectionalLight(0xff5555, 1.5);
     dirLight1.position.set(20, 30, 20);
@@ -390,8 +390,8 @@ function initImageSphere(canvasId, assetKey, triggerSelector) {
     const group = new THREE.Group();
     scene.add(group);
 
-    let orbitYaw = 0, orbitPitch = 0;
-    let targetYaw = 0, targetPitch = 0;
+    let orbitYaw = initialYaw, orbitPitch = 0;
+    let targetYaw = initialYaw, targetPitch = 0;
     let isDragging = false;
     let dragStartX = 0, dragStartY = 0, yawStart = 0, pitchStart = 0;
 
@@ -408,9 +408,10 @@ function initImageSphere(canvasId, assetKey, triggerSelector) {
         const mapMat = new THREE.MeshStandardMaterial({ 
             map: texture, 
             transparent: true, 
-            opacity: 0.96,
-            roughness: 0.2,
-            metalness: 0.4
+            opacity: 1.0,
+            roughness: 0.1,
+            metalness: 0.5,
+            emissive: new THREE.Color(0x222222) // Subtle boost for visibility
         });
         const sphere = new THREE.Mesh(geometry, mapMat);
         group.add(sphere);
@@ -555,8 +556,8 @@ document.addEventListener("DOMContentLoaded", () => {
     initWebGLHero();
 
     // Init 2 image spheres using Base64 Mem Objects (event-drop and artists only)
-    initImageSphere('canvas-what', 'crowd', '#upcoming-events');
-    initImageSphere('canvas-artists', 'dj', '#artists');
+    initImageSphere('canvas-what', 'crowd', '#upcoming-events', 0);
+    initImageSphere('canvas-artists', 'dj', '#artists', 3.2); // Rotated to DJ side
 
     // --- Custom Cursor ---
     const cursor = document.querySelector('.custom-cursor'), follower = document.querySelector('.custom-cursor-follower');
