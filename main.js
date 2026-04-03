@@ -125,8 +125,8 @@ function initWebGLHero() {
     // Base scales
     const sizes = new Float32Array(particleCount);
 
-    const warColor = new THREE.Color(0xff2211); // Aggressive Red/Orange
-    const soundColor = new THREE.Color(0x00ffcc); // Harmonious Cyan/Teal
+    const warColor = new THREE.Color(0xff2211); // Aggressive Red
+    const soundColor = new THREE.Color(0xff3344); // Vibrant Red Accent
 
     // Generate states
     for (let i = 0; i < particleCount; i++) {
@@ -380,10 +380,10 @@ function initImageSphere(canvasId, assetKey, triggerSelector, initialYaw = 0) {
     // Modern dramatic Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 1.0); // Brighter standard lighting
     scene.add(ambientLight);
-    const dirLight1 = new THREE.DirectionalLight(0xff5555, 1.5);
+    const dirLight1 = new THREE.DirectionalLight(0xff3333, 1.5);
     dirLight1.position.set(20, 30, 20);
     scene.add(dirLight1);
-    const dirLight2 = new THREE.DirectionalLight(0x5555ff, 1.2);
+    const dirLight2 = new THREE.DirectionalLight(0x330000, 1.2); // Darker red/black atmosphere
     dirLight2.position.set(-20, -10, -20);
     scene.add(dirLight2);
 
